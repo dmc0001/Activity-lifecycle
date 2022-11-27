@@ -1,6 +1,7 @@
 package com.example.activityliife
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,8 +14,23 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         Log.d( LOG_TAG,"onCreate")
+        addCallBacks()
+    }
+    private fun addCallBacks (){
         button_two.setOnClickListener {
             finish()
+            Toast.makeText(this,"back", Toast.LENGTH_SHORT).show()
+        }
+        button_three.text = "call"
+        button_three.setOnClickListener {
+            //val i = Intent(Intent.ACTION_VIEW)
+           // i.data = Uri.parse("https://google.com")
+            val i = Intent(Intent.ACTION_DIAL)
+            i.data = Uri.parse("tel:123456789")
+            startActivity(i)
+
+           // Toast.makeText(this,"Google", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Phone Call", Toast.LENGTH_SHORT).show()
         }
     }
     override fun onStart() {

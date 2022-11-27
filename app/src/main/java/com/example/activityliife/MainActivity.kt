@@ -12,6 +12,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d(LOG_TAG,"onCreate")
+        addCallBacks()
+
+    }
+    private fun addCallBacks (){
         button.setOnClickListener {
             val i = Intent(this,MainActivity2::class.java)
             startActivity(i)
